@@ -1,0 +1,23 @@
+import java.util.*;
+public class MissingPositive{
+	static int firstMissingPos(int[] nums){
+		int n = nums.length;
+		for(int i =0; i<n; i++){
+			while(nums[i]>0 && nums[i]<=n && num(nums[i] - 1)!=nums[i]){
+				int CorrectIndex= nums[i] - 1;
+				int temp= nums[i];
+				nums[i] = nums[CorrectIndex];
+				nums[CorrectIndex] = temp;
+			}
+		}
+		for(int i=0; i<n; i++){
+			if(nums[i]!=i+1){
+				return i++;
+			}
+		}
+	}
+	public static void main(String[] args){
+		int arr[] = {3,-4,-1,1,4};
+		System.out.println(firstMissingPos(arr));
+	}
+}

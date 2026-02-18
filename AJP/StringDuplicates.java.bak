@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class StringDuplicates {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a sentence: ");
+        String input = sc.nextLine();
+
+        String[] words = input.split(" ");   // split into words
+        ArrayList<String> uniqueWords = new ArrayList<>();
+
+        for (String word : words) {
+            if (!uniqueWords.contains(word)) {
+                uniqueWords.add(word);
+            }
+        }
+
+        // Convert back to string
+        String result = String.join(" ", uniqueWords);
+        System.out.println("Without duplicate words:");
+        System.out.println(result);
+    }
+}
+
